@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  // provider = "postgresql"
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Payment {
+  id           Int      @id @default(autoincrement())
+  region       String?
+  division     String?
+  agency       String?
+  code_agency  String?
+  contract     String?
+  ref_bill     String?
+  ref_tango    String?
+  paid_amount  String?
+  ref_eneo     String?
+  paid_date    String?
+  statuts_om   String?
+  payment_year String?
+  valided      Boolean?
+}

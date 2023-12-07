@@ -1,0 +1,5 @@
+LOAD DATA INFILE '/Paiements_Orange_2022_2023_01.csv' 
+INTO TABLE eneoocmpayment_dev.payment
+FIELDS TERMINATED BY '#' 
+IGNORE 1 LINES
+(region,division,agency,code_agency,contract,ref_bill,ref_tango,paid_amount,ref_eneo,paid_date,statuts_om,payment_year);
