@@ -11,6 +11,7 @@ const PaymentList = ({paymentList} :any ) => {
     <div className='px-[10px] md:px-[120px] mt-7 z-10'>
         <h2 className='text-[20px] font-bold'>Search Results</h2>
         {/* <Download /> */}
+        { paymentList.length==0 ? <p className="text-red-500 text-[50px]  ">No result</p>: null}
         <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5'>
             { paymentList.map((payment:any,index:number) => (
                 <div key={index} className='z-10' onClick={ () => setSelectedPayment(payment) }>
