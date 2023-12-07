@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Search from "./Search";
-import category from "@/data/category";
+// import category from "@/data/category";
 
 function Hero({ userInput }: any) {
     return (
@@ -9,6 +9,7 @@ function Hero({ userInput }: any) {
             <div>
                 <Image
                     src="/bg-pay-2.png"
+                    priority={false}
                     alt="hero-image"
                     width={500}
                     height={150}

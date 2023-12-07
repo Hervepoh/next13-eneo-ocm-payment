@@ -19,9 +19,11 @@ export default function Home() {
     const type = searchParam[0];
     const value = searchParam[1];
    
+    if (type !== "") {
     const result = await fetch('/api/payment' +'?type='+ type+ '&value='+value);
     const data = await result.json();
     setPaymentList(data.payments)
+    }
   }
 
   return (
