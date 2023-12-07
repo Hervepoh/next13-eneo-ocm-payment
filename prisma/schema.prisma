@@ -26,4 +26,8 @@ model Payment {
   statuts_om   String?
   payment_year String?
   valided      Boolean?
+
+  @@index([contract])
+  @@index([ref_bill])
+  @@index([ref_tango])
 }

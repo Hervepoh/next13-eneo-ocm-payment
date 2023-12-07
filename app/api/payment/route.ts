@@ -1,9 +1,8 @@
-import { addPayment, getPayments } from "@/lib/data";
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/app/libs/prismadb";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request, response: Response) {
-  const prisma = new PrismaClient();
+
   try {
     //const payments = await prisma.payment.findMany()
     const { searchParams } = new URL(request.url);
@@ -75,23 +74,6 @@ export async function GET(request: Request, response: Response) {
     }
 
     return NextResponse.json({ payments });
-  } catch (error) {
-    return NextResponse.json(
-      { message: "An error occurred", error },
-      {
-        status: 500,
-      }
-    );
-  }
-}
-
-export async function POST(request: Request, response: Response) {
-  const { REGION } = await request.json();
-  try {
-    const payment = { ID: Date.now().toString(), REGION: REGION };
-    addPayment(payment);
-
-    return NextResponse.json({ message: "ok", payment }, { status: 201 });
   } catch (error) {
     return NextResponse.json(
       { message: "An error occurred", error },
