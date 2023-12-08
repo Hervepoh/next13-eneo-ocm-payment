@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { saveAs } from "file-saver";
-import * as XlsxPopulate from "xlsx-populate";
+//import * as XlsxPopulate from "xlsx-populate";
 
 export default function Download() {
   function getSheetData(data:any, header:any) {
@@ -22,21 +22,21 @@ export default function Download() {
     ];
     let header = ["Name", "City"];
 
-    XlsxPopulate.fromBlankAsync().then(async (workbook:any) => {
-      const sheet1 = workbook.sheet(0);
-      const sheetData = getSheetData(data, header);
-      const totalColumns = sheetData[0].length;
+    // XlsxPopulate.fromBlankAsync().then(async (workbook:any) => {
+    //   const sheet1 = workbook.sheet(0);
+    //   const sheetData = getSheetData(data, header);
+    //   const totalColumns = sheetData[0].length;
 
-      sheet1.cell("A1").value(sheetData);
-      const range = sheet1.usedRange();
-      const endColumn = String.fromCharCode(64 + totalColumns);
-      sheet1.row(1).style("bold", true);
-      sheet1.range("A1:" + endColumn + "1").style("fill", "BFBFBF");
-      range.style("border", true);
-      return workbook.outputAsync().then((res: any) => {
-        saveAs(res, "file.xlsx");
-      });
-    });
+    //   sheet1.cell("A1").value(sheetData);
+    //   const range = sheet1.usedRange();
+    //   const endColumn = String.fromCharCode(64 + totalColumns);
+    //   sheet1.row(1).style("bold", true);
+    //   sheet1.range("A1:" + endColumn + "1").style("fill", "BFBFBF");
+    //   range.style("border", true);
+    //   return workbook.outputAsync().then((res: any) => {
+    //     saveAs(res, "file.xlsx");
+    //   });
+    // });
   }
 
   return (
